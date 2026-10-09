@@ -1,0 +1,5 @@
+O que a página mostra (para o texto de WhatsApp e e-mail):
+- Vídeo do próprio salão no topo, com a história desde 2014 e as duas casas (Cachambi e Higienópolis).
+- Agenda online própria: o cliente escolhe a casa, o serviço, o dia e um horário livre e reserva em menos de um minuto, sem ligar e sem esperar resposta. Hoje a barbearia não tem esse canal próprio.
+- Serviços com botão de agendar em cada linha, depoimentos reais de clientes, fotos do salão e as duas unidades com endereço e como chegar.
+Ganho para o dono: cliente que pesquisa à noite ou no fim de semana já sai com horário marcado, em vez de deixar para ligar depois.
