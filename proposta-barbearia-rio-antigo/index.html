@@ -475,9 +475,9 @@ h2{font-size:clamp(36px,5vw,64px)}
 
   // vídeo do topo: horizontal no computador, vertical no celular
   var vh=document.getElementById('vhero');
-  var base=desk?'vid/hero':'vid/barba';
+  var base=desk?'vid/hero':'vid/hero-m';
   vh.innerHTML='<source src="'+base+'.webm" type="video/webm"><source src="'+base+'.mp4" type="video/mp4">';
-  if(!desk) vh.poster='img/poster-barba.jpg';
+  if(!desk) vh.poster='img/poster-hero-m.jpg';
   vh.load(); if(!reduz){ var pv=vh.play(); if(pv&&pv.catch) pv.catch(function(){}); }
 
   // barra fixa
