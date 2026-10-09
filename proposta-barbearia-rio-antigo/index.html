@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barbearia Rio Antigo | Cachambi e Higienópolis</title>
+<meta name="description" content="Barbearia tradicional desde 2014 no Cachambi e em Higienópolis, Rio de Janeiro. Corte, barba na navalha com toalha quente e chopp por conta da casa.">
+<meta name="theme-color" content="#120E0A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,800;1,6..96,400;1,6..96,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --noite:#120E0A; --tabaco:#1C1510; --tabaco-2:#261C14; --madeira:#7A4A22;
+  --latao:#C8A04F; --latao-claro:#E8CD86; --latao-escuro:#8A6A2C;
+  --creme:#F1E7D3; --creme-2:#CFC2AA; --poste:#A42A2C; --zap:#1FAF5A;
+  --display:"Bodoni Moda", "Didot", Georgia, serif;
+  --texto:"Jost", "Futura", system-ui, sans-serif;
+  --borda: rgba(200,160,79,.28);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--noite);color:var(--creme);font:400 17px/1.6 var(--texto);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--latao-claro);outline-offset:3px}
+.wrap{width:min(1180px, 100% - 40px);margin-inline:auto}
+.rotulo{font:500 12px/1 var(--texto);letter-spacing:.32em;text-transform:uppercase;color:var(--latao)}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.02;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(40px, 6vw, 76px)}
+h2 em, h1 em{font-style:italic;font-weight:400;color:var(--latao-claro)}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 26px;border-radius:2px;font:600 13px/1 var(--texto);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:transform .25s, background .25s, color .25s, box-shadow .25s}
+.btn svg{width:18px;height:18px;flex:none}
+.btn--zap{background:var(--latao);color:var(--noite);box-shadow:0 0 0 1px var(--latao-claro) inset}
+.btn--zap:hover{background:var(--latao-claro);transform:translateY(-2px)}
+.btn--linha{border:1px solid var(--latao);color:var(--latao-claro)}
+.btn--linha:hover{background:rgba(200,160,79,.12)}
+
+/* topo fixo */
+.barra{position:fixed;inset:0 0 auto 0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px clamp(16px,3vw,40px);transition:background .35s, padding .35s}
+.barra.solida{background:rgba(18,14,10,.92);backdrop-filter:blur(8px);padding-block:8px;border-bottom:1px solid var(--borda)}
+.marca{display:flex;align-items:center;gap:12px;text-decoration:none}
+.marca svg{width:84px;height:auto;transition:width .35s}
+.barra.solida .marca svg{width:64px}
+.menu{display:flex;gap:30px;align-items:center}
+.menu a{font:500 12px/1 var(--texto);letter-spacing:.24em;text-transform:uppercase;text-decoration:none;color:var(--creme-2)}
+.menu a:hover{color:var(--latao-claro)}
+.menu .btn{padding:12px 18px;color:var(--noite)}
+.poste{width:6px;height:34px;border-radius:3px;background:repeating-linear-gradient(135deg,var(--poste) 0 6px,var(--creme) 6px 12px,#2a4c8a 12px 18px,var(--creme) 18px 24px);background-size:100% 48px;animation:poste 2.4s linear infinite;box-shadow:0 0 0 2px var(--latao-escuro)}
+@keyframes poste{to{background-position:0 48px}}
+@media (max-width:820px){.menu a:not(.btn){display:none}}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:grid;align-items:end;overflow:hidden;isolation:isolate;background:var(--noite)}
+.palco{position:absolute;inset:0;z-index:-2}
+.palco video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.espelhos{display:none}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(180deg, rgba(18,14,10,.55) 0%, rgba(18,14,10,.15) 35%, rgba(18,14,10,.75) 72%, var(--noite) 100%)}
+.hero-txt{padding:140px 0 72px}
+.hero h1{font-size:clamp(52px, 11vw, 132px);font-weight:600;max-width:11ch}
+.hero h1 span{display:block}
+.hero p.sub{max-width:520px;margin:22px 0 32px;color:var(--creme-2);font-size:clamp(17px,2vw,20px);font-weight:300}
+.acoes{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.nota{display:inline-flex;align-items:center;gap:10px;margin-top:34px;font:500 13px/1.3 var(--texto);letter-spacing:.06em;color:var(--creme-2)}
+.nota b{font:600 28px/1 var(--display);color:var(--latao-claro)}
+.estrelas{color:var(--latao);letter-spacing:2px}
+
+@media (min-width:980px){
+  .palco video.unico{display:none}
+  .hero{grid-template-columns:1fr;align-items:center;background:
+     radial-gradient(120% 90% at 70% 40%, #2b1d12 0%, var(--noite) 70%)}
+  .hero::before{background:linear-gradient(90deg, var(--noite) 0%, rgba(18,14,10,.85) 30%, rgba(18,14,10,.2) 60%, rgba(18,14,10,.35) 100%)}
+  .espelhos{display:flex;position:absolute;right:clamp(20px,3.5vw,64px);top:50%;transform:translateY(-46%);gap:20px;z-index:-2;align-items:center}
+  .moldura{position:relative;width:clamp(150px,13.5vw,215px);aspect-ratio:9/16;padding:12px;border-radius:999px 999px 6px 6px;
+     background:linear-gradient(145deg,#f3dc9a 0%,#b3883a 22%,#6d5021 45%,#d8b56a 62%,#8a6a2c 82%,#f0d590 100%);
+     box-shadow:0 30px 60px rgba(0,0,0,.6), inset 0 0 0 1px rgba(255,240,200,.5)}
+  .moldura::after{content:"";position:absolute;inset:7px;border-radius:999px 999px 4px 4px;box-shadow:inset 0 0 0 1px rgba(60,40,10,.7);pointer-events:none}
+  .moldura video{width:100%;height:100%;object-fit:cover;border-radius:999px 999px 2px 2px;filter:saturate(.92) contrast(1.05)}
+  .moldura:nth-child(2){width:clamp(180px,16vw,255px);transform:translateY(-18px)}
+  .moldura:nth-child(1),.moldura:nth-child(3){opacity:.92}
+  .hero-txt{padding:120px 0 60px}
+  .hero-txt > *{max-width:min(500px, 38vw)}
+  .hero h1{max-width:8.6ch}
+  .hero h1{font-size:clamp(58px, 6.2vw, 100px)}
+}
+
+/* faixa poste */
+.faixa{height:10px;background:repeating-linear-gradient(115deg,var(--poste) 0 22px,var(--creme) 22px 44px,#21407a 44px 66px,var(--creme) 66px 88px);opacity:.9}
+
+/* casa (quem somos) com fundo em movimento */
+.paral{position:relative;overflow:hidden;isolation:isolate}
+.paral .fundo{position:absolute;inset:-18% 0;z-index:-2;background-size:cover;background-position:center;will-change:transform}
+.paral::before{content:"";position:absolute;inset:0;z-index:-1}
+.casa{padding:clamp(90px,14vw,170px) 0}
+.casa::before{background:linear-gradient(90deg, rgba(18,14,10,.94) 0%, rgba(18,14,10,.82) 45%, rgba(18,14,10,.35) 100%)}
+.casa .txt{max-width:600px}
+.casa h2{margin:18px 0 26px}
+.casa p{color:var(--creme-2);font-weight:300;font-size:19px}
+.citacao{margin:36px 0 0;padding:22px 0 0 24px;border-left:2px solid var(--latao);font:italic 400 clamp(21px,2.4vw,26px)/1.4 var(--display);color:var(--creme)}
+.citacao cite{display:block;margin-top:10px;font:500 12px/1 var(--texto);letter-spacing:.24em;text-transform:uppercase;font-style:normal;color:var(--latao)}
+.tres{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:56px;background:var(--borda);border:1px solid var(--borda)}
+.tres div{background:rgba(18,14,10,.86);padding:22px 20px}
+.tres b{display:block;font:600 21px/1.15 var(--display);color:var(--latao-claro);margin-bottom:8px}
+.tres span{font-size:15px;color:var(--creme-2)}
+@media (max-width:720px){.tres{grid-template-columns:1fr}.casa::before{background:rgba(18,14,10,.84)}}
+
+/* galeria */
+.galeria{padding:clamp(80px,11vw,140px) 0 clamp(70px,9vw,110px);background:var(--tabaco)}
+.cab{display:flex;align-items:end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.cab h2{margin-top:14px}
+.setas{display:flex;gap:10px}
+.setas button{width:52px;height:52px;border-radius:50%;border:1px solid var(--latao);background:transparent;color:var(--latao-claro);font-size:20px;cursor:pointer;transition:background .25s}
+.setas button:hover{background:rgba(200,160,79,.15)}
+.trilho{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 max(20px, calc((100vw - 1180px)/2)) 12px;scrollbar-width:none}
+.trilho::-webkit-scrollbar{display:none}
+.trilho figure{flex:0 0 auto;margin:0;scroll-snap-align:center;position:relative;height:min(560px,70vh);aspect-ratio:9/14;overflow:hidden;border-radius:2px}
+.trilho figure.largo{aspect-ratio:4/5}
+.trilho img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.trilho figure:hover img{transform:scale(1.05)}
+.trilho figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 18px 16px;background:linear-gradient(transparent, rgba(18,14,10,.9));font:500 12px/1.3 var(--texto);letter-spacing:.2em;text-transform:uppercase;color:var(--creme)}
+
+/* serviços */
+.servicos{padding:clamp(90px,12vw,150px) 0;background:var(--noite)}
+.servicos .intro{max-width:560px;color:var(--creme-2);font-weight:300;margin:22px 0 50px}
+.tabela{border-top:1px solid var(--latao)}
+.linha{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.6fr) auto;gap:28px;align-items:center;padding:30px 0;border-bottom:1px solid var(--borda);text-decoration:none;transition:background .3s, padding .3s}
+.linha:hover{background:linear-gradient(90deg, rgba(200,160,79,.08), transparent);padding-left:14px}
+.linha h3{font:600 clamp(22px,2.6vw,32px)/1.05 var(--display);text-transform:uppercase;letter-spacing:.04em}
+.linha p{margin:0;color:var(--creme-2);font-weight:300}
+.linha .ir{font:600 12px/1 var(--texto);letter-spacing:.22em;text-transform:uppercase;color:var(--latao-claro);white-space:nowrap;display:flex;align-items:center;gap:10px}
+.linha .ir svg{width:18px;height:18px}
+.obs{margin-top:34px;color:var(--creme-2);font-size:15px}
+@media (max-width:760px){.linha{grid-template-columns:1fr;gap:10px}}
+
+/* unidades */
+.unidades{padding:clamp(100px,13vw,170px) 0;min-height:90vh}
+.unidades .slides{position:absolute;inset:0;z-index:-2}
+.unidades .slides div{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.08);transition:opacity 1.6s ease, transform 7s linear}
+.unidades .slides div.ativo{opacity:1;transform:scale(1)}
+.unidades::before{background:linear-gradient(180deg, rgba(18,14,10,.82), rgba(18,14,10,.66) 40%, rgba(18,14,10,.9))}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:50px}
+.card{background:rgba(18,14,10,.78);backdrop-filter:blur(6px);border:1px solid var(--borda);padding:clamp(26px,3vw,40px);position:relative}
+.card::before{content:"";position:absolute;inset:8px;border:1px solid rgba(200,160,79,.14);pointer-events:none}
+.card h3{font-size:clamp(34px,4vw,48px)}
+.card .end{color:var(--creme-2);margin:14px 0 22px;font-weight:300}
+.card .tel{font:500 14px/1 var(--texto);letter-spacing:.14em;color:var(--latao-claro);text-decoration:none;display:inline-block;margin-bottom:24px}
+.card .acoes{gap:10px}
+.card .btn{padding:14px 18px}
+@media (max-width:760px){.cards{grid-template-columns:1fr}}
+
+/* avaliações */
+.avaliacoes{padding:clamp(90px,12vw,150px) 0;background:var(--tabaco);text-align:center}
+.placar{display:flex;justify-content:center;align-items:baseline;gap:16px;margin:18px 0 8px}
+.placar b{font:600 clamp(80px,12vw,140px)/.9 var(--display);color:var(--latao-claro)}
+.placar span{text-align:left;font-size:15px;color:var(--creme-2);line-height:1.4}
+.carrossel{position:relative;max-width:860px;margin:50px auto 0;min-height:250px}
+.depo{position:absolute;inset:0;opacity:0;transform:translateY(14px);transition:opacity .8s, transform .8s;pointer-events:none}
+.depo.ativo{opacity:1;transform:none;pointer-events:auto}
+.depo blockquote{margin:0;font:italic 400 clamp(22px,3vw,32px)/1.4 var(--display);color:var(--creme)}
+.depo cite{display:block;margin-top:22px;font:500 12px/1 var(--texto);letter-spacing:.24em;text-transform:uppercase;font-style:normal;color:var(--latao)}
+.pontos{display:flex;justify-content:center;gap:10px;margin-top:30px}
+.pontos button{width:34px;height:3px;border:0;padding:0;background:var(--borda);cursor:pointer}
+.pontos button[aria-current="true"]{background:var(--latao)}
+.avaliacoes .btn{margin-top:40px}
+
+/* chamada final */
+.final{padding:clamp(120px,18vw,220px) 0;text-align:center}
+.final::before{background:radial-gradient(70% 70% at 50% 50%, rgba(18,14,10,.55), rgba(18,14,10,.92))}
+.final h2{font-size:clamp(46px,8vw,104px);max-width:12ch;margin:18px auto 22px}
+.final p{color:var(--creme-2);max-width:520px;margin:0 auto 36px;font-weight:300}
+
+footer{padding:40px 0 110px;border-top:1px solid var(--borda);color:var(--creme-2);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer svg{width:70px}
+
+/* agenda online */
+.agenda{padding:clamp(90px,12vw,150px) 0;background:linear-gradient(180deg,var(--tabaco),var(--noite))}
+.agenda .grade{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:clamp(30px,5vw,70px);align-items:start}
+.agenda .lado p{color:var(--creme-2);font-weight:300;margin:22px 0}
+.ganhos{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:14px}
+.ganhos li{display:flex;gap:14px;align-items:baseline;color:var(--creme)}
+.ganhos li::before{content:"";flex:none;width:8px;height:8px;transform:rotate(45deg) translateY(-2px);background:var(--latao)}
+.livro{background:var(--creme);color:var(--noite);border-radius:3px;box-shadow:0 30px 70px rgba(0,0,0,.55);overflow:hidden;position:relative}
+.livro::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:repeating-linear-gradient(115deg,var(--poste) 0 14px,var(--creme) 14px 28px,#21407a 28px 42px,var(--creme) 42px 56px)}
+.livro-topo{display:flex;justify-content:space-between;align-items:center;padding:26px 28px 6px}
+.livro-topo b{font:600 24px/1.1 var(--display)}
+.livro-topo small{font:500 11px/1 var(--texto);letter-spacing:.2em;text-transform:uppercase;color:var(--latao-escuro)}
+.passo{padding:18px 28px;border-top:1px solid rgba(18,14,10,.1);transition:opacity .3s}
+.passo h4{margin:0 0 12px;font:600 12px/1 var(--texto);letter-spacing:.2em;text-transform:uppercase;color:#6b5a44;display:flex;gap:10px;align-items:center}
+.passo h4 i{font-style:normal;display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--noite);color:var(--latao-claro);font-size:11px;letter-spacing:0}
+.passo.off{opacity:.38;pointer-events:none}
+.opcoes{display:flex;flex-wrap:wrap;gap:8px}
+.opcoes button{border:1px solid rgba(18,14,10,.25);background:transparent;color:var(--noite);padding:10px 14px;border-radius:2px;font:500 14px/1.1 var(--texto);cursor:pointer;transition:.2s}
+.opcoes button:hover{border-color:var(--noite)}
+.opcoes button[aria-pressed="true"]{background:var(--noite);color:var(--latao-claro);border-color:var(--noite)}
+.opcoes button:disabled{text-decoration:line-through;opacity:.35;cursor:not-allowed}
+.dias{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.dias::-webkit-scrollbar{display:none}
+.dias button{flex:none;text-align:center;min-width:62px;padding:8px 6px}
+.dias button small{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.75;margin-bottom:3px}
+.dias button b{font:600 20px/1 var(--display)}
+.horas{display:grid;grid-template-columns:repeat(auto-fill,minmax(72px,1fr));gap:8px}
+.campos{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.campos input{width:100%;padding:13px 12px;border:1px solid rgba(18,14,10,.25);background:#fff;border-radius:2px;font:400 15px var(--texto);color:var(--noite)}
+.confirmar{width:100%;justify-content:center;margin-top:14px;border:0;cursor:pointer;background:var(--noite);color:var(--latao-claro)}
+.confirmar:disabled{opacity:.4;cursor:not-allowed}
+.resumo{font-size:14px;color:#5b4c3a;margin:10px 0 0;min-height:20px}
+.ok{display:none;padding:34px 28px 30px;text-align:center}
+.livro.feito .passo,.livro.feito .livro-topo{display:none}
+.livro.feito .ok{display:block}
+.ok .selo-ok{width:64px;height:64px;margin:0 auto 16px;border-radius:50%;background:var(--noite);color:var(--latao-claro);display:grid;place-items:center;font-size:30px}
+.ok h3{font-size:32px}
+.ok dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;text-align:left;max-width:340px;margin:22px auto;font-size:15px}
+.ok dt{color:#6b5a44}
+.ok dd{margin:0;font-weight:500}
+.ok .aviso{font-size:12px;color:#7a6a55;margin-top:18px}
+.ok button{background:none;border:0;text-decoration:underline;cursor:pointer;font:500 14px var(--texto);color:var(--noite);margin-top:6px}
+@media (max-width:900px){.agenda .grade{grid-template-columns:1fr}.campos{grid-template-columns:1fr}.passo,.livro-topo{padding-inline:20px}}
+.hor{margin:-10px 0 10px;font-size:14px;color:var(--creme-2)}
+
+/* botão flutuante */
+.flut{position:fixed;right:18px;bottom:18px;z-index:50;display:flex;align-items:center;gap:10px;background:var(--latao);color:var(--noite);text-decoration:none;border-radius:999px;padding:14px 22px 14px 18px;font:600 13px/1 var(--texto);letter-spacing:.14em;text-transform:uppercase;box-shadow:0 12px 30px rgba(0,0,0,.5);transition:transform .25s, opacity .3s}
+.flut:hover{transform:translateY(-2px)}
+.flut svg{width:20px;height:20px}
+.flut.some{opacity:0;pointer-events:none}
+@media (max-width:720px){.rotulo{letter-spacing:.2em} footer{padding-bottom:90px}}
+
+/* entrada das seções */
+.surge{opacity:0;transform:translateY(28px);transition:opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1)}
+.surge.visivel{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none !important;transition:none !important;scroll-behavior:auto !important}
+  .surge{opacity:1;transform:none}
+}
+
+/* ajustes v3 */
+.espelhos{display:none!important}
+.palco video{display:block!important}
+.hero::before{background:linear-gradient(180deg, rgba(12,9,6,.72) 0%, rgba(12,9,6,.6) 45%, rgba(12,9,6,.94) 100%)!important}
+.hero h1{font-size:clamp(42px,9vw,60px)!important;max-width:12ch!important}
+.hero p.sub{font-size:17px}
+@media (min-width:980px){
+  .hero{background:var(--noite)!important;align-items:center}
+  .hero::before{background:linear-gradient(90deg, rgba(12,9,6,.94) 0%, rgba(12,9,6,.78) 40%, rgba(12,9,6,.5) 100%), linear-gradient(0deg, rgba(12,9,6,.95) 0%, transparent 35%)!important}
+  .hero h1{font-size:clamp(52px,5vw,76px)!important}
+  .hero-txt > *{max-width:560px!important}
+}
+.casa::before{background:linear-gradient(90deg, rgba(12,9,6,.96) 0%, rgba(12,9,6,.9) 50%, rgba(12,9,6,.72) 100%)!important}
+@media (max-width:720px){.casa::before{background:rgba(12,9,6,.9)!important}}
+.unidades::before{background:linear-gradient(180deg, rgba(12,9,6,.9), rgba(12,9,6,.82) 45%, rgba(12,9,6,.95))!important}
+.final::before{background:radial-gradient(70% 70% at 50% 50%, rgba(12,9,6,.8), rgba(12,9,6,.96))!important}
+h2{font-size:clamp(36px,5vw,64px)}
+</style>
+</head>
+<body>
+
+<!-- logotipo da casa redesenhado em vetor -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="selo" viewBox="0 0 400 300">
+      <path d="M200 22c-22 0-30 14-34 30C88 58 12 102 12 168c0 70 84 118 188 118s188-48 188-118c0-66-76-110-154-116-4-16-12-30-34-30z" fill="#F4EEE2" stroke="#120E0A" stroke-width="5"/>
+      <path d="M200 34c-15 0-21 10-24 26C98 64 26 106 26 168c0 62 78 106 174 106s174-44 174-106c0-62-72-104-150-108-3-16-9-26-24-26z" fill="none" stroke="#120E0A" stroke-width="1.6"/>
+      <g fill="#120E0A">
+        <path d="M181 42h4v40c0 3-2 5-4 5h-1l-6-2 7-6z"/>
+        <path d="M187 43l9 2-9 38z" opacity=".9"/>
+        <path d="M205 44h22l-4 42h-14z" fill="none" stroke="#120E0A" stroke-width="3"/>
+        <path d="M207 52h18" stroke="#120E0A" stroke-width="2"/>
+      </g>
+      <path d="M70 122 Q200 92 330 122" fill="none" stroke="#120E0A" stroke-width="2.4"/>
+      <text x="200" y="186" text-anchor="middle" font-family="Bodoni Moda, Didot, Georgia, serif" font-weight="600" font-size="62" textLength="300" lengthAdjust="spacingAndGlyphs" fill="#120E0A">RIO ANTIGO</text>
+      <text x="200" y="230" text-anchor="middle" font-family="Jost, Futura, sans-serif" font-weight="500" font-size="21" textLength="170" lengthAdjust="spacingAndGlyphs" fill="#120E0A">BARBEARIA</text>
+    </symbol>
+    <symbol id="cal" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M4 6h16v14H4zM4 10h16M8 3v5M16 3v5"/><path fill="currentColor" d="M8 13h3v3H8z"/></symbol>
+    <symbol id="zap" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></symbol>
+  </defs>
+</svg>
+
+<header class="barra" id="barra">
+  <a class="marca" href="#topo" aria-label="Barbearia Rio Antigo, voltar ao topo"><svg viewBox="0 0 400 300" role="img" aria-label="Rio Antigo Barbearia"><use href="#selo"/></svg></a>
+  <nav class="menu" aria-label="Seções">
+    <a href="#casa">A casa</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#unidades">Unidades</a>
+    <a href="#agendar">Agenda</a>
+    <span class="poste" aria-hidden="true"></span>
+    <a class="btn btn--zap" href="#agendar" data-ag><svg><use href="#cal"/></svg>Agendar</a>
+  </nav>
+</header>
+
+<main id="topo">
+  <section class="hero" aria-label="Apresentação">
+    <div class="palco" aria-hidden="true"><video id="vhero" muted loop playsinline autoplay preload="auto" poster="img/poster-hero.jpg"></video></div>
+    <div class="wrap hero-txt">
+      <p class="rotulo">Cachambi · Higienópolis</p>
+      <h1><span>Desde 2014.</span><span><em>Tradição</em> e estilo.</span></h1>
+      <p class="sub">Corte na tesoura ou na máquina, barba na navalha com toalha quente e um chopp gelado por conta da casa. Do jeito que o Rio sempre cuidou do visual.</p>
+      <div class="acoes">
+        <a class="btn btn--zap" href="#agendar" data-ag><svg><use href="#cal"/></svg>Agendar meu horário</a>
+        <a class="btn btn--linha" href="#unidades">Ver as duas casas</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="faixa" aria-hidden="true"></div>
+
+  <section class="paral casa" id="casa">
+    <div class="fundo" data-paral style="background-image:url(img/salao-teto.jpg)"></div>
+    <div class="wrap">
+      <div class="txt surge">
+        <p class="rotulo">A casa</p>
+        <h2>O Rio dos <em>velhos tempos</em>, na cadeira do barbeiro.</h2>
+        <p>Madeira nas paredes, espelho de moldura dourada, sofá de couro para esperar e música boa no ar. A Rio Antigo foi feita para quem gosta de cortar o cabelo sem pressa, com barbeiro que conhece o cliente pelo nome.</p>
+        <blockquote class="citacao">“Profissionais de primeira, atendimento de alto nível e o cenário do Rio de Janeiro dos velhos tempos.”<cite>Caetano T., cliente da casa</cite></blockquote>
+      </div>
+      <div class="tres surge">
+        <div><b>Chopp da casa</b><span>Chopp, café ou água por conta da casa para quem senta na cadeira.</span></div>
+        <div><b>Barba na navalha</b><span>Toalha quente, espuma e navalha, no ritual completo.</span></div>
+        <div><b>Duas casas</b><span>Cachambi e Higienópolis, com o mesmo padrão nas duas.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="galeria" aria-labelledby="t-galeria">
+    <div class="wrap cab surge">
+      <div><p class="rotulo">Por dentro</p><h2 id="t-galeria">Cada detalhe <em>no lugar</em>.</h2></div>
+      <div class="setas"><button type="button" data-dir="-1" aria-label="Fotos anteriores">←</button><button type="button" data-dir="1" aria-label="Próximas fotos">→</button></div>
+    </div>
+    <div class="trilho" id="trilho" tabindex="0" aria-label="Galeria de fotos da barbearia">
+      <figure class="largo"><img src="img/salao.jpg" alt="Salão da Rio Antigo com paredes de madeira, poltronas e cadeiras de barbeiro" loading="lazy"><figcaption>O salão</figcaption></figure>
+      <figure><img src="img/espelho-chopp.jpg" alt="Chopp servido no balcão em frente ao espelho de moldura dourada" loading="lazy"><figcaption>Chopp no balcão</figcaption></figure>
+      <figure><img src="img/corte.jpg" alt="Barbeiro fazendo corte diante do espelho dourado" loading="lazy"><figcaption>Corte na tesoura</figcaption></figure>
+      <figure><img src="img/toalha.jpg" alt="Barbeiro preparando a barba com toalha quente" loading="lazy"><figcaption>Toalha quente</figcaption></figure>
+      <figure><img src="img/chopp-balcao.jpg" alt="Copo de chopp gelado no balcão de madeira" loading="lazy"><figcaption>Por conta da casa</figcaption></figure>
+      <figure class="largo"><img src="img/espelho.jpg" alt="Espelhos com moldura dourada e luminárias no salão" loading="lazy"><figcaption>Os espelhos</figcaption></figure>
+      <figure><img src="img/navalha.jpg" alt="Barba sendo feita na navalha" loading="lazy"><figcaption>Navalha</figcaption></figure>
+      <figure><img src="img/cafe.jpg" alt="Cantinho do café com máquina de espresso" loading="lazy"><figcaption>O café</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="servicos" id="servicos" aria-labelledby="t-serv">
+    <div class="wrap">
+      <div class="surge">
+        <p class="rotulo">Serviços</p>
+        <h2 id="t-serv">O que a casa <em>faz bem</em>.</h2>
+        <p class="intro">Escolha o serviço e reserve o horário na hora, pelo celular, sem ligar e sem esperar resposta.</p>
+      </div>
+      <div class="tabela surge">
+        <a class="linha" href="#agendar" data-ag data-serv="Corte"><h3>Corte</h3><p>Na tesoura ou na máquina, do clássico ao degradê, com acabamento na navalha.</p><span class="ir"><svg><use href="#cal"/></svg>Agendar</span></a>
+        <a class="linha" href="#agendar" data-ag data-serv="Barba na navalha"><h3>Barba na navalha</h3><p>Toalha quente, espuma, navalha e finalização.</p><span class="ir"><svg><use href="#cal"/></svg>Agendar</span></a>
+        <a class="linha" href="#agendar" data-ag data-serv="Corte e barba"><h3>Corte e barba</h3><p>O serviço completo, com o chopp no meio do caminho.</p><span class="ir"><svg><use href="#cal"/></svg>Agendar</span></a>
+        <a class="linha" href="#agendar" data-ag data-serv="Corte infantil"><h3>Corte infantil</h3><p>A criança senta na cadeira e o pai fica do lado.</p><span class="ir"><svg><use href="#cal"/></svg>Agendar</span></a>
+        <a class="linha" href="#agendar" data-ag data-serv="Acabamento"><h3>Acabamento</h3><p>Contorno e pezinho na navalha, para manter o corte em dia.</p><span class="ir"><svg><use href="#cal"/></svg>Agendar</span></a>
+      </div>
+      
+    </div>
+  </section>
+
+  <section class="agenda" id="agendar" aria-labelledby="t-agenda">
+    <div class="wrap grade">
+      <div class="lado surge">
+        <p class="rotulo">Agenda online</p>
+        <h2 id="t-agenda">Sua cadeira, <em>no seu horário</em>.</h2>
+        <p>Escolha a casa, o serviço e um horário livre. Em menos de um minuto a cadeira está reservada, sem ligar e sem esperar na fila.</p>
+        <ul class="ganhos">
+          <li>Horários livres das duas casas na mesma tela</li>
+          <li>Confirmação e lembrete no seu WhatsApp</li>
+          <li>Reserva a qualquer hora, até de madrugada</li>
+        </ul>
+      </div>
+      <div class="livro surge" id="livro">
+        <div class="livro-topo"><b>Reservar horário</b><small>Rio Antigo</small></div>
+        <div class="passo" data-p="1"><h4><i>1</i>Casa</h4><div class="opcoes" data-grupo="uni"><button type="button">Cachambi</button><button type="button">Higienópolis</button></div></div>
+        <div class="passo off" data-p="2"><h4><i>2</i>Serviço</h4><div class="opcoes" data-grupo="serv"><button type="button">Corte</button><button type="button">Barba na navalha</button><button type="button">Corte e barba</button><button type="button">Corte infantil</button><button type="button">Acabamento</button></div></div>
+        <div class="passo off" data-p="3"><h4><i>3</i>Dia</h4><div class="opcoes dias" data-grupo="dia"></div></div>
+        <div class="passo off" data-p="4"><h4><i>4</i>Horário</h4><div class="opcoes horas" data-grupo="hora"></div></div>
+        <div class="passo off" data-p="5"><h4><i>5</i>Seus dados</h4>
+          <div class="campos"><input id="ag-nome" type="text" autocomplete="name" placeholder="Seu nome" aria-label="Seu nome"><input id="ag-tel" type="tel" autocomplete="tel" inputmode="tel" placeholder="Seu WhatsApp com DDD" aria-label="Seu WhatsApp com DDD"></div>
+          <p class="resumo" id="ag-resumo"></p>
+          <button type="button" class="btn confirmar" id="ag-ok" disabled>Confirmar horário</button>
+        </div>
+        <div class="ok" aria-live="polite">
+          <div class="selo-ok" aria-hidden="true">✓</div>
+          <h3>Cadeira reservada.</h3>
+          <dl id="ag-final"></dl>
+          <p>A confirmação e o lembrete chegam no seu WhatsApp. O chopp já está gelando.</p>
+          <p class="aviso">Demonstração preparada pela Semente: na versão final, a reserva entra direto na agenda da barbearia.</p>
+          <button type="button" id="ag-novo">Fazer outra reserva</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="paral unidades" id="unidades" aria-labelledby="t-uni">
+    <div class="slides" aria-hidden="true">
+      <div class="ativo" style="background-image:url(img/fachada.jpg)"></div>
+      <div style="background-image:url(img/salao.jpg)"></div>
+      <div style="background-image:url(img/espelho.jpg)"></div>
+    </div>
+    <div class="wrap">
+      <div class="surge">
+        <p class="rotulo">Unidades</p>
+        <h2 id="t-uni">Duas casas, <em>o mesmo ritual</em>.</h2>
+      </div>
+      <div class="cards">
+        <article class="card surge">
+          <p class="rotulo">Desde 2014</p>
+          <h3>Cachambi</h3>
+          <p class="end">Rua Tenente França, 366, loja B<br>Cachambi, Rio de Janeiro</p>
+          <p class="hor">Seg a sex, 9h às 20h · Sáb, 9h às 19h</p><a class="tel" href="tel:+552137968010">(21) 3796-8010</a>
+          <div class="acoes">
+            <a class="btn btn--zap" href="#agendar" data-ag data-uni="Cachambi"><svg><use href="#cal"/></svg>Agendar aqui</a>
+            <a class="btn btn--linha" href="https://maps.google.com/?cid=2349835963839471026" target="_blank" rel="noopener">Como chegar</a>
+          </div>
+        </article>
+        <article class="card surge">
+          <p class="rotulo">Segunda casa</p>
+          <h3>Higienópolis</h3>
+          <p class="end">Rua Darke de Mattos, 67, loja D<br>Higienópolis, Rio de Janeiro</p>
+          <p class="hor">Seg a sex, 9h às 20h · Sáb, 9h às 19h</p><a class="tel" href="tel:+552141284771">(21) 4128-4771</a>
+          <div class="acoes">
+            <a class="btn btn--zap" href="#agendar" data-ag data-uni="Higienópolis"><svg><use href="#cal"/></svg>Agendar aqui</a>
+            <a class="btn btn--linha" href="https://www.google.com/maps/search/?api=1&query=Barbearia%20Rio%20Antigo%20Rua%20Darke%20de%20Mattos%2067%20Higien%C3%B3polis" target="_blank" rel="noopener">Como chegar</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="avaliacoes" aria-labelledby="t-aval">
+    <div class="wrap">
+      <p class="rotulo surge">Quem senta na cadeira</p>
+      <h2 id="t-aval" class="surge" style="margin-top:14px">O que dizem <em>de nós</em>.</h2>
+      <div class="carrossel" id="depos" aria-live="polite">
+        <figure class="depo ativo"><blockquote>“O Thiago manda muito bem, sempre atento aos detalhes e entendendo exatamente como eu gosto do corte. Já virei cliente fixo. Outro detalhe que faz diferença: café muito bom e chopp sempre gelado.”</blockquote><cite>Lucas F. · Cachambi</cite></figure>
+        <figure class="depo"><blockquote>“Clima familiar, profissionais muito competentes, serviço de alta qualidade, preços honestos e chopp sempre gelado. Não à toa, sou cliente há mais de uma década.”</blockquote><cite>Alexandre C. · Cachambi</cite></figure>
+        <figure class="depo"><blockquote>“O local é tradicional e tem profissionais de primeira, atendimento de alto nível. Isso sem contar a música bem equalizada e o cenário do Rio de Janeiro dos velhos tempos.”</blockquote><cite>Caetano T. · Cachambi</cite></figure>
+        <figure class="depo"><blockquote>“No mesmo momento que nos cuidamos, temos um local descontraído e bom para um papo. Um chopp bem gelado, um preço justo e certeza da satisfação.”</blockquote><cite>Marcello G. · Cachambi</cite></figure>
+        <figure class="depo"><blockquote>“Atendimento personalizado e ambiente bonito. Dá brinde, tem cartão fidelidade. Corte muito bom.”</blockquote><cite>Alexandre L. · Cachambi</cite></figure>
+      </div>
+      <div class="pontos" id="pontos"></div>
+      <a class="btn btn--zap" href="#agendar" data-ag style="margin-top:44px"><svg><use href="#cal"/></svg>Quero ser o próximo</a>
+    </div>
+  </section>
+
+  <section class="paral final" aria-labelledby="t-final">
+    <div class="fundo" data-paral style="background-image:url(img/corte.jpg)"></div>
+    <div class="wrap surge">
+      <p class="rotulo">Rio Antigo Barbearia</p>
+      <h2 id="t-final">Sua cadeira <em>está esperando</em>.</h2>
+      <p>Escolha a casa, o serviço e o horário. Você chega, senta e o chopp fica por conta da casa.</p>
+      <a class="btn btn--zap" href="#agendar" data-ag><svg><use href="#cal"/></svg>Reservar minha cadeira</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <svg viewBox="0 0 400 300" role="img" aria-label="Rio Antigo Barbearia"><use href="#selo"/></svg>
+    <p style="margin:0">Barbearia Rio Antigo · Cachambi e Higienópolis, Rio de Janeiro · Desde 2014</p>
+    <a href="https://www.instagram.com/barbeariarioantigo/" target="_blank" rel="noopener">Instagram @barbeariarioantigo</a>
+  </div>
+</footer>
+
+<a class="flut" href="#agendar" data-ag aria-label="Agendar horário"><svg><use href="#cal"/></svg><span>Agendar horário</span></a>
+
+
+
+<script>
+(function(){
+  var reduz = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var desk = window.matchMedia('(min-width:980px)').matches;
+
+  // vídeo do topo: horizontal no computador, vertical no celular
+  var vh=document.getElementById('vhero');
+  var base=desk?'vid/hero':'vid/barba';
+  vh.innerHTML='<source src="'+base+'.webm" type="video/webm"><source src="'+base+'.mp4" type="video/mp4">';
+  if(!desk) vh.poster='img/poster-barba.jpg';
+  vh.load(); if(!reduz){ var pv=vh.play(); if(pv&&pv.catch) pv.catch(function(){}); }
+
+  // barra fixa
+  var barra = document.getElementById('barra');
+  function rolou(){ barra.classList.toggle('solida', window.scrollY > 40); }
+  rolou(); window.addEventListener('scroll', rolou, {passive:true});
+
+  // fundos que acompanham a rolagem
+  var fundos = [].slice.call(document.querySelectorAll('[data-paral]'));
+  function paral(){
+    var h = window.innerHeight;
+    fundos.forEach(function(f){
+      var r = f.parentElement.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > h) return;
+      var p = (r.top + r.height/2 - h/2) / (h + r.height);
+      f.style.transform = 'translate3d(0,' + (p * -22) + '%,0)';
+    });
+  }
+  if (!reduz){ paral(); window.addEventListener('scroll', function(){ requestAnimationFrame(paral); }, {passive:true}); }
+
+  // entrada das seções
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visivel'); io.unobserve(e.target);} }); }, {threshold:.15});
+  document.querySelectorAll('.surge').forEach(function(el){ io.observe(el); });
+
+  // galeria
+  var trilho = document.getElementById('trilho');
+  document.querySelectorAll('.setas button').forEach(function(b){
+    b.addEventListener('click', function(){ trilho.scrollBy({left: (+b.dataset.dir) * Math.min(trilho.clientWidth*.8, 640), behavior: reduz?'auto':'smooth'}); });
+  });
+
+  // slideshow das unidades
+  var slides = document.querySelectorAll('.unidades .slides div'), s = 0;
+  if (!reduz) setInterval(function(){ slides[s].classList.remove('ativo'); s=(s+1)%slides.length; slides[s].classList.add('ativo'); }, 6000);
+
+  // avaliações
+  var depos = document.querySelectorAll('.depo'), pontos = document.getElementById('pontos'), d = 0, timer;
+  depos.forEach(function(_, i){ var b=document.createElement('button'); b.type='button'; b.setAttribute('aria-label','Avaliação '+(i+1)); b.addEventListener('click', function(){ vai(i); reinicia(); }); pontos.appendChild(b); });
+  function vai(i){ depos[d].classList.remove('ativo'); pontos.children[d].removeAttribute('aria-current'); d=i; depos[d].classList.add('ativo'); pontos.children[d].setAttribute('aria-current','true'); }
+  function reinicia(){ clearInterval(timer); if(!reduz) timer=setInterval(function(){ vai((d+1)%depos.length); }, 7000); }
+  vai(0); reinicia();
+
+  // agenda online
+  var livro=document.getElementById('livro'), esc={};
+  var nomesDia=['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+  var meses=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
+  var dias=livro.querySelector('[data-grupo="dia"]'), hoje=new Date();
+  function iso(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+  for(var k=0,n=0;n<12;k++){ var dt=new Date(hoje); dt.setDate(hoje.getDate()+k); if(dt.getDay()===0) continue; var b=document.createElement('button'); b.type='button'; b.dataset.v=iso(dt); b.dataset.sab=dt.getDay()===6?'1':''; b.dataset.rot=(k===0?'Hoje':k===1?'Amanhã':nomesDia[dt.getDay()])+', '+dt.getDate()+' de '+meses[dt.getMonth()]; b.innerHTML='<small>'+(k===0?'Hoje':nomesDia[dt.getDay()])+'</small><b>'+dt.getDate()+'</b>'; dias.appendChild(b); n++; }
+  function horas(){
+    var g=livro.querySelector('[data-grupo="hora"]'); g.innerHTML='';
+    var bd=dias.querySelector('[aria-pressed="true"]'); var fim=bd&&bd.dataset.sab?18*60+20:19*60+20;
+    var semente=(bd?bd.dataset.v:'')+(esc.uni||'')+(esc.serv||'');
+    for(var m=9*60;m<=fim;m+=40){
+      var h=String(Math.floor(m/60)).padStart(2,'0')+':'+String(m%60).padStart(2,'0');
+      var b=document.createElement('button'); b.type='button'; b.textContent=h;
+      var x=0; for(var i=0;i<semente.length;i++) x=(x*31+semente.charCodeAt(i)+m)%97; if(x%4===0) b.disabled=true;
+      if(bd && bd.dataset.v===iso(hoje)){ var agora=hoje.getHours()*60+hoje.getMinutes(); if(m<=agora+30) b.disabled=true; }
+      g.appendChild(b);
+    }
+  }
+  function libera(){
+    var ordem=['uni','serv','dia','hora'];
+    livro.querySelectorAll('.passo').forEach(function(p){ var i=+p.dataset.p; var pronto=ordem.slice(0,i-1).every(function(c){return esc[c];}); p.classList.toggle('off',!pronto); });
+    resumo();
+  }
+  function resumo(){
+    var nome=document.getElementById('ag-nome').value.trim(), tel=document.getElementById('ag-tel').value.replace(/[^0-9]/g,'');
+    var completo=esc.uni&&esc.serv&&esc.dia&&esc.hora;
+    document.getElementById('ag-resumo').textContent=completo?(esc.serv+' na casa '+esc.uni+', '+esc.diaRot.toLowerCase()+', às '+esc.hora+'.'):'';
+    document.getElementById('ag-ok').disabled=!(completo&&nome.length>1&&tel.length>=10);
+  }
+  function marca(grupo,valor,rot){
+    var g=livro.querySelector('[data-grupo="'+grupo+'"]');
+    g.querySelectorAll('button').forEach(function(b){ var v=b.dataset.v||b.textContent; b.setAttribute('aria-pressed', v===valor?'true':'false'); });
+    esc[grupo]=valor; if(grupo==='dia') esc.diaRot=rot;
+    if(grupo==='uni'||grupo==='serv'||grupo==='dia'){ esc.hora=null; horas(); }
+    libera();
+  }
+  livro.addEventListener('click',function(e){
+    var b=e.target.closest('.opcoes button'); if(!b||b.disabled) return;
+    marca(b.parentElement.dataset.grupo, b.dataset.v||b.textContent, b.dataset.rot);
+  });
+  ['ag-nome','ag-tel'].forEach(function(id){ document.getElementById(id).addEventListener('input',resumo); });
+  document.getElementById('ag-ok').addEventListener('click',function(){
+    var nome=document.getElementById('ag-nome').value.trim();
+    document.getElementById('ag-final').innerHTML='<dt>Nome</dt><dd></dd><dt>Casa</dt><dd></dd><dt>Serviço</dt><dd></dd><dt>Quando</dt><dd></dd>';
+    var dd=document.querySelectorAll('#ag-final dd'); dd[0].textContent=nome; dd[1].textContent=esc.uni; dd[2].textContent=esc.serv; dd[3].textContent=esc.diaRot+', às '+esc.hora;
+    livro.classList.add('feito'); livro.scrollIntoView({behavior:reduz?'auto':'smooth',block:'center'});
+  });
+  document.getElementById('ag-novo').addEventListener('click',function(){ livro.classList.remove('feito'); esc={}; livro.querySelectorAll('[aria-pressed]').forEach(function(b){b.setAttribute('aria-pressed','false');}); horas(); libera(); });
+  horas(); libera();
+  // botões de agendar em toda a página
+  document.querySelectorAll('[data-ag]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      if(livro.classList.contains('feito')) document.getElementById('ag-novo').click();
+      if(a.dataset.uni) marca('uni',a.dataset.uni);
+      if(a.dataset.serv) marca('serv',a.dataset.serv);
+      document.getElementById('agendar').scrollIntoView({behavior:reduz?'auto':'smooth'});
+    });
+  });
+  // botão flutuante some quando a agenda está na tela
+  var flut=document.querySelector('.flut');
+  var naAgenda=false; function fl(){ flut.classList.toggle('some', naAgenda || window.scrollY < window.innerHeight*0.8); }
+  new IntersectionObserver(function(es){ naAgenda=es[0].isIntersecting; fl(); },{threshold:.25}).observe(document.getElementById('agendar'));
+  window.addEventListener('scroll', fl, {passive:true}); fl();
+})();
+</script>
+</body>
+</html>
